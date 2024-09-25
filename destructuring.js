@@ -14,3 +14,6 @@ let {name} = student;
 let {age, birth, score} = student;
 
 console.log(name);
+
+// in 연산자는 속성명이 문자열로 표현된 형태
+console.log("age" in student);
