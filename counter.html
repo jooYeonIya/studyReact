@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>0</p>
+    <button onclick="handleClick()">click</button>
+    <script>
+        let counter = 0;
+
+        const button = document.querySelector("#btn");
+        const p = document.querySelector("p");
+
+        function handleClick() {
+            counter += 1;
+            p.innerText = `${counter}`;
+        }
+
+        button.addEventListener("click", handleClick);
+    </script>
+</body>
+</html>
