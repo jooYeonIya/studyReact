@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header';
+import Func3, { Func1, Func2 } from './components/Components';
 
 function App() {
   let [todo, setTodo] = useState("");
@@ -27,6 +28,9 @@ function App() {
   console.log("외부" + todoList);
   return (
     <>
+      <Func1 />
+      <Func2 />
+      <Func3 />
       <Header />
       <input type="text" value={todo} placeholder="할 일을 입력하세요" onChange={changeTodo} />
       <button onClick={addTodoList}>Add</button>
