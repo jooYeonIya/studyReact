@@ -6,7 +6,7 @@ export default function TodoList({todo}) {
             <h4>Todo List</h4>
             <input type="text" placeholder="검색어를 입력하세요" />
             <br />
-            {todo.map ((it) => <div><TodoItem it={it}/></div>)}
+            {todo.map ((it) => <div><TodoItem key={it.id} it={it}/></div>)}
         </>
     )
 }

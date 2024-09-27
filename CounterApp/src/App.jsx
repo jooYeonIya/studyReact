@@ -24,7 +24,7 @@ function App() {
     }
 
     setTodo([...todo, newTodoItem]);
-    idRef += 1; 
+    idRef.current += 1; 
   }
 
   return (
