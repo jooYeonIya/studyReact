@@ -27,11 +27,15 @@ function App() {
     idRef.current += 1; 
   }
 
+  const deleteTodo = (id) => {
+    setTodo(todo.filter((it) => it.id !== id));
+  }
+
   return (
     <>
       <Header />
       <TodoEditor onCreate={createTodo}/>
-      <TodoList todo={todo}/>
+      <TodoList todo={todo} deleteTodo={deleteTodo}/>
     </>
   )
 }
