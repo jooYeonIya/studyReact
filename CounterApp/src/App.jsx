@@ -1,31 +1,20 @@
 import { useState } from 'react'
 import './App.css'
-import CondComponent from './components/CondComponent';
-import ShareButton from './components/ShareButton';
+import Header from './components/Header'
 
-
+/* 
+컴포넌트
+Header
+TodoItem
+Detail
+-SearchBar
+-TodoList
+*/
 function App() {
-  let [cond, setCond] = useState(false);
-  let changeStatus = () => {
-    setCond(!cond);
-  }
 
-  let style = () => {
-    return cond 
-      ? {backgroundColor: "red", color: "green"}
-      : {backgroundColor: "blue", color: "orange"}
-  }  
-  
   return (
     <>
-      {cond ? <CondComponent /> : null}
-      {cond ? "참" : "거짓"}
-
-      <br/>
-
-      <ShareButton text={cond ? "로그아웃" : "로그인"} 
-                         style={style()}
-                         showAlert={changeStatus}/>
+      <Header />
     </>
   )
 }
