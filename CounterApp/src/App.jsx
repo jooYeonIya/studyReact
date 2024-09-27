@@ -1,20 +1,15 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/TodoList/Header'
+import TodoEditor from './components/TodoList/TodoEditor'
 
-/* 
-컴포넌트
-Header
-TodoItem
-Detail
--SearchBar
--TodoList
-*/
+
 function App() {
 
   return (
     <>
       <Header />
+      <TodoEditor />
     </>
   )
 }
