@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
- 
+import Header from './components/Header';
+
 function App() {
   let [todo, setTodo] = useState("");
   let [todoList, setTodoList] = useState([]);
@@ -11,7 +12,7 @@ function App() {
 
   const addTodoList = (event) => {
     event.preventDefault();
-    if(!todo) return ;
+    if (!todo) return;
     setTodo("");
     setTodoList((arr) => [...arr, todo]);
     console.log("내부" + todoList);
@@ -24,10 +25,10 @@ function App() {
   }
 
   console.log("외부" + todoList);
-
   return (
     <>
-      <input type="text" value = {todo} placeholder="할 일을 입력하세요" onChange={changeTodo}/>
+      <Header />
+      <input type="text" value={todo} placeholder="할 일을 입력하세요" onChange={changeTodo} />
       <button onClick={addTodoList}>Add</button>
       <hr />
       {todoList.map(todo => <li>{todo}</li>)}
