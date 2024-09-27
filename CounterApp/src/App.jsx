@@ -31,7 +31,7 @@ function App() {
     <>
       <Header />
       <TodoEditor onCreate={createTodo}/>
-      <TodoList />
+      <TodoList todo={todo}/>
     </>
   )
 }

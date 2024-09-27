@@ -1,8 +1,8 @@
-export default function TodoItem() {
+export default function TodoItem({it}) {
     return (
         <>
             <input type="checkbox" />
-            <div>할 일</div>
+            <div>{it.content}</div>
             <div>{new Date().toLocaleDateString}</div>
             <button>삭제</button>
         </>
