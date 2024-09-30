@@ -1,22 +1,26 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Route, Link, Routes } from 'react-router-dom'
 import './App.css'
+import Home from '../router/Home'
+import Detail from '../router/Detail'
+import Info from '../router/Info'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    fetch("https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year")
-    .then((reponse) => reponse.json())
-    .then((json) => {
-      setMovies(json.data.movies);
-      setIsLoading(false);
-    })
-  }, []);
-  
+
   return (
     <>
-      <h1>movie App</h1>
-      {isLoading ? "로딩 중" : null}
+      <BrowserRouter>
+      <Link to="/">Home</Link>
+      <br />
+      <Link to="/Detail">Detail</Link>
+      <br />
+      <Link to="/Info">Info</Link>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/detail' element={<Detail />} />
+        <Route path='/info' element={<Info />} />
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
