@@ -26,7 +26,10 @@ const Detail = () => {
             <img src={movie.medium_screenshot_image2} alt="" />
             <img src={movie.medium_screenshot_image3} alt="" />
             <ul>
-            {movie.cast.map((data) => <li>{data.name}</li>)}
+                {movie.cast.map((data) => <li>
+                    <img src={data.url_small_image} alt="" />
+                    {data.name}
+                    </li>)}
             </ul>
         </>
     )
