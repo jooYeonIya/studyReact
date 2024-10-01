@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Movie from '../components/Movie';
 
-function App() {
+function AppMovieList() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
 
@@ -38,4 +38,4 @@ function App() {
   )
 }
 
-export default App
+export default AppMovieList
