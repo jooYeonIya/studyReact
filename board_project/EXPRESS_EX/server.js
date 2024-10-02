@@ -44,12 +44,16 @@ app.get('/posts/:id', function (req, res){
 })
 
 // 쓰기
-
 app.post('/posts', (req, res) => {
-    console.log("post request")
-    console.log(req.body);
     let { id, title, views } = req.body;
-    res.send(id);
+    let sql = 'insert into posts (id, title, views) values(?, ?, ?)'
+    connection.query(sql, [id, title, views], (error, results) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log(results)
+        }
+    })
 })
 
 // 수정하기
