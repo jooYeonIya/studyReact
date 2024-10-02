@@ -1,19 +1,18 @@
 import express from 'express';
 import mysql from 'mysql';
 
-
 const app = express();
 app.use(express.json());
 
 const connection = mysql.createConnection({
-    host     : 'localhost',
-    port     : 3306,
-    user     : 'root',
-    password : '1111',
-    database : 'board'
-  });
+    host: 'localhost',
+    port: 3307,
+    user: 'root',
+    password: '1111',
+    database: 'board'
+});
 
-
+connection.connect();
 
 app.get('/', function (req, res) {
     res.send('hello')
@@ -25,15 +24,28 @@ app.get('/', function (req, res) {
 //     console.log(req.params["id"])
 // })
 
-app.get('/qs',  function (req, res) {
+app.get('/qs', function (req, res) {
     let { id } = req.query;
     console.log(id);
+})
+
+app.get('/posts/:id', function (req, res){
+    let { id } = req.params;
+    let sql = `select * from posts where id = ${id}`;
+    connection.query(sql, function (error, results) {
+        if (error) {
+            console.log(error)
+        } else {
+            let {title, views} = results[0];
+            res.send({title, views});
+        }
+    })
 })
 
 app.post('/posts', (req, res) => {
     console.log("post request")
     console.log(req.body);
-    let {id, title, views} = req.body;
+    let { id, title, views } = req.body;
     res.send(id);
 })
 
