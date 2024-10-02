@@ -29,3 +29,7 @@ Content-Type: application/json; charest=UTF-8
     "title": "new title 1",
     "views": 100
 }
+
+###
+DELETE http://localhost:3003/posts/1 HTTP/1.1
+Content-Type: application/json; charest=UTF-8

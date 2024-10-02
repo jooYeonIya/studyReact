@@ -72,6 +72,20 @@ app.put('/posts/:id', (req, es) => {
     })
 })
 
+//삭제하기
+app.delete('/posts/:id', (req, res) => {
+    const { id } = req.params;
+    
+    let sql = 'delete from posts where id = ?'
+    connection.query(sql, [id], (error, results) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log(results)
+        }
+    })
+})
+
 app.listen(3003, () =>
     console.log("server is ready")
 )
