@@ -45,6 +45,17 @@ app.get('/posts/:id', function (req, res){
     })
 })
 
+app.get('/board/list', function(req, res) {
+    let sql = 'select * from board_table'
+    connection.query(sql, function (error, results) {
+        if (error) {
+            console.log(error)
+        } else {
+            res.send(results)
+        }
+    })
+})
+
 // 쓰기
 app.post('/posts', (req, res) => {
     let { id, title, views } = req.body;
