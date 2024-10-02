@@ -14,6 +14,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
+// 읽기
 app.get('/', function (req, res) {
     res.send('hello')
 })
@@ -42,11 +43,29 @@ app.get('/posts/:id', function (req, res){
     })
 })
 
+// 쓰기
+
 app.post('/posts', (req, res) => {
     console.log("post request")
     console.log(req.body);
     let { id, title, views } = req.body;
     res.send(id);
+})
+
+// 수정하기
+app.put('/posts/:id', (req, es) => {
+    const { id } = req.params;
+    const { title, views } = req.body;
+
+    //views만 업데이트 
+    let sql = 'update posts set views = ? where id = ?';
+    connection.query(sql, [views, id], (error, results) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(results);
+        }
+    })
 })
 
 app.listen(3003, () =>
