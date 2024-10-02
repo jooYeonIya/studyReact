@@ -1,7 +1,9 @@
 import express from 'express';
 import mysql from 'mysql';
+import cors from 'cors';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const connection = mysql.createConnection({
@@ -48,6 +50,19 @@ app.post('/posts', (req, res) => {
     let { id, title, views } = req.body;
     let sql = 'insert into posts (id, title, views) values(?, ?, ?)'
     connection.query(sql, [id, title, views], (error, results) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log(results)
+        }
+    })
+})
+
+app.post('/board/save', (req, res) => {
+    let { boardTitle, boardWirter, boardPwd, boardContents } = req.body.board
+    console.log(req.body.board)
+    let sql = 'insert into board_table(boardTitle, boardWirter, boardPwd, boardContents) values(?,?,?,?)'
+    connection.query(sql, [boardTitle, boardWirter, boardPwd, boardContents], (error, results) => {
         if (error) {
             console.log(error)
         } else {
