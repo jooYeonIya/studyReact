@@ -3,8 +3,11 @@ import './App.css'
 import Detail from '../router/Detail'
 import Info from '../router/Info'
 import AppMovieList from './AppMovieList'
+import { changeTitle } from '../src/changeTitle'
 
 function App() {
+  
+  changeTitle("영화 사이트");
 
   return (
     <>

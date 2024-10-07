@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+import { changeTitle } from '../src/changeTitle'
 
 export default function Movie({ movie }) {
-    const title = document.getElementsByTagName("title")[0]
-    title.innerText = "영화 상세 보기"
+
+    changeTitle("영화 상세");
+    
     return (
         <>
             <div>
