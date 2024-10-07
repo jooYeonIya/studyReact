@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 
 export default function Movie({ movie }) {
+    const title = document.getElementsByTagName("title")[0]
+    title.innerText = "영화 상세 보기"
     return (
         <>
             <div>
