@@ -1,4 +1,5 @@
 import "./Header.css";
+import { memo } from "react";
 
 const Header = () => {
   return (
@@ -9,4 +10,6 @@ const Header = () => {
   );
 };
 
-export default Header;
+// 한 번만 렌더링됨
+const memoHeader = memo(Header);
+export default memoHeader;
